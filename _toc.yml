@@ -2,9 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: 0_Overview.ipynb
 chapters:
-- file: 0_Overview.ipynb                        
 - file: 0_Prerequisites_1_unix.ipynb            
 - file: 0_Prerequisites_2_python_jupyter.ipynb  
 - file: 0_Prerequisites_3_ncar_account_jupyterhub.ipynb
