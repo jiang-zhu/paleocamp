@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Running CESM in Four Steps - Introduction &#8212; Running CESM2 in four steps &amp; analyzing output</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_run_CESM_in_4steps_intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running CESM in Four Steps - Exercises" href="2_run_CESM_in_4steps_exercises.html" />
+    <link rel="prev" title="NSF NCAR Advanced Research Computing" href="0_Prerequisites_3_ncar_account_jupyterhub.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Running CESM2 in four steps & analyzing output - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Running CESM2 in four steps & analyzing output - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Overview.html">Running CESM2 in four steps &amp; analyzing output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_1_unix.html">Basic Unix Commands</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_2_python_jupyter.html">Python &amp; Jupyter Basics</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">NSF NCAR Advanced Research Computing</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running CESM in Four Steps - Introduction</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2_run_CESM_in_4steps_exercises.html">Running CESM in Four Steps - Exercises</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">CESM Output and Analysis</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">Additional information and examples</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_run_CESM_in_4steps_intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_run_CESM_in_4steps_intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Running CESM in Four Steps - Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running CESM in Four Steps - Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-as-a-software">CESM as a software</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">CESM Workspaces (assuming you run a company that builds new  electric cars)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-preindustrial-control-simulation-in-four-steps">Run a preindustrial control simulation in four steps</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-create-newcase">Further explanations on <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-setup">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-build">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.build</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-submit">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.submit</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-job-status">Check job status</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output">Model output</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-controls-xml-change">More controls: XML change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-controls-namelist-change">More controls: namelist change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-advanced-resources">Optional advanced resources</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img src="./images/paleoCAMPLogo.png"
+         width="16%"
+         alt="paleoCAMP_logo"
+         align="right"
+         style="horizontal-align:top;margin:0px 0px"/></p>
+<section class="tex2jax_ignore mathjax_ignore" id="running-cesm-in-four-steps-introduction">
+<h1>Running CESM in Four Steps - Introduction<a class="headerlink" href="#running-cesm-in-four-steps-introduction" title="Permalink to this heading">#</a></h1>
+<p><strong>Tutorial at <a class="reference external" href="https://paleoclimate.camp/">the 2024 paleoCAMP</a> | June 18–July 1, 2024</strong></p>
+<p><a class="reference external" href="https://staff.cgd.ucar.edu/jiangzhu/">Jiang Zhu</a><br />
+<a class="reference external" href="mailto:jiangzhu&#37;&#52;&#48;ucar&#46;edu">jiangzhu<span>&#64;</span>ucar<span>&#46;</span>edu</a><br />
+Climate &amp; Global Dynamics Laboratory<br />
+NSF National Center for Atmospheric Research</p>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Know basic structure of CESM as a software including the workspaces</p></li>
+<li><p>Know how to set up a simple experiment with CESM</p></li>
+<li><p>Know how to configure details of the experiment using xmlchange and namelist</p></li>
+</ul>
+<p><strong>Time to learn</strong>: 30 minutes</p>
+<p><strong>NOTE</strong>: Hands-on exercise is in the next module. You don’t need to do anything yet.</p>
+<hr class="docutils" />
+<p><img src="./images/CESM2_Workspaces_Code.png"
+         width="500"
+         alt="CESM"
+         align="right"
+         style="horizontal-align:left;margin:10px 0px"/></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cesm-as-a-software">
+<h1>CESM as a software<a class="headerlink" href="#cesm-as-a-software" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>~5 million lines of FORTRAN* source code and scripts (vs. Minecraft of 0.5 million in Java)</p></li>
+<li><p>You need to <strong>build the source code</strong> to create and run the executable.</p></li>
+<li><p>Multiple components communicating with each other through the coupler</p></li>
+<li><p>Download the released CESM from Github*</p>
+<ul>
+<li><p>git clone -b release-cesm2.1.5 <a class="github reference external" href="https://github.com/ESCOMP/CESM.git">ESCOMP/CESM.git</a> cesm2.1.5</p></li>
+<li><p>cd cesm2.1.5</p></li>
+<li><p>./manage_externals/checkout_externals</p></li>
+</ul>
+</li>
+<li><p>Read more about CESM <a class="reference external" href="https://www.cesm.ucar.edu/">here</a></p></li>
+</ul>
+<p>*NOTE: <a class="reference external" href="https://partee.io/2021/02/21/climate-model-response/">Why FORTRAN?</a><br />
+*NOTE: for this tutorial, please use the code in my workspace: <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5</span></code></p>
+<hr class="docutils" />
+<p><img src="./images/CESM2_Workspaces_Detail.png"
+         width="750"
+         alt="CESM"
+         align="right"
+         style="horizontal-align:left;margin:10px 0px"/></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">
+<h1>CESM Workspaces (assuming you run a company that builds new  electric cars)<a class="headerlink" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>CESM Code</p></li>
+</ol>
+<ul class="simple">
+<li><p>“<em>Headquarter</em>”, containing your intellectual properties, e.g., research/designing of EVs</p></li>
+<li><p>FORTRAN, Python, &amp; XML (Extensible Markup Language) files</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Inputdata Directory</p></li>
+</ol>
+<ul class="simple">
+<li><p>“<em>Supply Warehouse</em>”, where you get the raw materials, e.g., steel and batteries</p></li>
+<li><p>Netcdf data</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Case Directory</p></li>
+</ol>
+<ul class="simple">
+<li><p>“<em>Production Control Room</em>”, where you give instructions, e.g., hire 100 workers and produce 5 EVs per day</p></li>
+<li><p>Text, script, XML files</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Build/Run Directory</p></li>
+</ol>
+<ul class="simple">
+<li><p>“<em>Factory</em>”, where workers assemble the EVs</p></li>
+<li><p>Library, executables, netcdf files, …</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Archive Directory</p></li>
+</ol>
+<ul class="simple">
+<li><p>“<em>Storage</em>”, where you store the assembled EVs</p></li>
+<li><p>Netcdf files, log files in text, …</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="run-a-preindustrial-control-simulation-in-four-steps">
+<h1>Run a preindustrial control simulation in four steps<a class="headerlink" href="#run-a-preindustrial-control-simulation-in-four-steps" title="Permalink to this heading">#</a></h1>
+<div class="alert alert-info">
+<ol class="arabic simple">
+<li><p>Create a new case <code class="docutils literal notranslate"><span class="pre">case01</span></code> in <code class="docutils literal notranslate"><span class="pre">~/cases</span></code> (takes space in CESM Code directory, the “<em>Headquarter</em>” and creates the “<em>Production Control Room</em>”)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/glade/work/jiangzhu/paleocamp/cesm2.1.5/cime/scripts/
+./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/cases/case01<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Set up your case (takes space in Case directory, the “<em>Production Control Room</em>” and creates the “<em>Factory</em>”)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~cases/case01
+./case.setup
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Build your case (takes space in Case directory, the “<em>Production Control Room</em>” and designs the manufacturing workflow)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.build
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>submit your run (takes space in Case directory, the “<em>Production Control Room</em>” and starts the manufacturing)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./case.submit
+</pre></div>
+</div>
+</div><section id="further-explanations-on-create-newcase">
+<h2>Further explanations on <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code><a class="headerlink" href="#further-explanations-on-create-newcase" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command has three required inputs. <em>It creates your “Production Control Room”</em>.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--case</span></code>: the name and directory path of your case (<em>your Production Control Room</em>)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Setting case to <code class="docutils literal notranslate"><span class="pre">~/cases/case01</span></code> will make a simulation called <code class="docutils literal notranslate"><span class="pre">case01</span></code> and it will be located in <code class="docutils literal notranslate"><span class="pre">~/cases</span></code></p></li>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">case01</span></code> for simplicity, but here is the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM case naming conventions</a></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">--compset</span></code>: the CESM component set that you’d like to use.</p></li>
+</ol>
+<ul class="simple">
+<li><p>CESM2 components can be combined in numerous ways to carry out various scientific experiments. A particular mix of components, along with component-specific configuration and/or namelist settings is called a component set or <code class="docutils literal notranslate"><span class="pre">compset</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">B1850</span></code> means fully coupled preindustrial control including active atmosphere, land, ocean, sea ice, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E1850</span></code> means coupled preindustrial control with active atmosphere and land but a slab ocean (no ocean dynamics).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F1850</span></code> means atmosphere/land-only simulation with fixed sea-surface temperature and sea ice cover.</p></li>
+<li><p><a class="reference external" href="https://docs.cesm.ucar.edu/models/cesm2/config/compsets.html">Other supported compsets</a>. Or <code class="docutils literal notranslate"><span class="pre">$CESMROOT/cime/scripts/query_config</span> <span class="pre">--compsets</span></code></p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">--res</span></code>: the resolution that you’d like to use.</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f19_g17</span></code>: ~2° atmosphere/land and ~1° ocean/sea ice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f09_g17</span></code>: ~1° atmosphere/land and ~1° ocean/sea ice</p></li>
+<li><p><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/config/grids.html">Other supported grid/resolution</a>. Or <code class="docutils literal notranslate"><span class="pre">$CESMROOT/cime/scripts/query_config</span> <span class="pre">--compsets</span></code></p></li>
+</ul>
+</section>
+<section id="further-explanations-on-case-setup">
+<h2>Further explanations on <code class="docutils literal notranslate"><span class="pre">case.setup</span></code><a class="headerlink" href="#further-explanations-on-case-setup" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">case.setup</span></code> creates the <code class="docutils literal notranslate"><span class="pre">$RUNDIR</span></code> and <code class="docutils literal notranslate"><span class="pre">$EXEROOT</span></code>, which is your <em>Factory</em>.<br />
+<code class="docutils literal notranslate"><span class="pre">case.setup</span></code> also creates files like user_nl_cam, where users can customize component namelist settings.<br />
+<code class="docutils literal notranslate"><span class="pre">case.setup</span></code> should be invoked in the $CASEROOT (<em>your Production Control Room</em>).</p>
+</section>
+<section id="further-explanations-on-case-build">
+<h2>Further explanations on <code class="docutils literal notranslate"><span class="pre">case.build</span></code><a class="headerlink" href="#further-explanations-on-case-build" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">case.build</span></code> check and builds component model namelists and libraries, and the final executable.<br />
+<code class="docutils literal notranslate"><span class="pre">case.build</span></code> <em><em><strong>may take 10 minutes!</strong></em></em></p>
+<p>Use the following to move the building job to a computing node (not the shared login node):<br />
+<code class="docutils literal notranslate"><span class="pre">qcmd</span> <span class="pre">--</span> <span class="pre">./case.build</span></code></p>
+<p>Tips: if you first case.build fails somehow, run <code class="docutils literal notranslate"><span class="pre">./case.build</span> <span class="pre">--clean-all</span></code> first before trying to build the model again.</p>
+</section>
+<section id="further-explanations-on-case-submit">
+<h2>Further explanations on <code class="docutils literal notranslate"><span class="pre">case.submit</span></code><a class="headerlink" href="#further-explanations-on-case-submit" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">case.build</span></code> submit the job to the HPC batch job scheduler.<br />
+<code class="docutils literal notranslate"><span class="pre">case.build</span></code> also submit the <code class="docutils literal notranslate"><span class="pre">case.st_archive</span></code> script to archive the model output (move output from your <em>Factory</em> to <em>Storage</em>). This step is dependent on the successful completion of simulation.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="check-job-status">
+<h1>Check job status<a class="headerlink" href="#check-job-status" title="Permalink to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">qstat</span></code> accesses the information in the Batch Job Scheduler to see the status of all jobs running on Derecho. To simplify the list down the <code class="docutils literal notranslate"><span class="pre">-u</span></code> option can be specified for a particular user.</p>
+<p><code class="docutils literal notranslate"><span class="pre">qstat</span></code> can be used in any directory on Derecho.</p>
+<div class="alert alert-info">
+<strong>Result of running qstat with an active job running: </strong><br><br>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+<br>
+<p><strong>Output: </strong><br></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Job<span class="w"> </span>ID<span class="w">          </span>Username<span class="w"> </span>Queue<span class="w">    </span>Jobname<span class="w">    </span>SessID<span class="w"> </span>NDS<span class="w"> </span>TSK<span class="w"> </span>Memory<span class="w"> </span>Time<span class="w">  </span>S<span class="w"> </span>Time
+---------------<span class="w"> </span>--------<span class="w"> </span>--------<span class="w"> </span>----------<span class="w"> </span>------<span class="w"> </span>---<span class="w"> </span>---<span class="w"> </span>------<span class="w"> </span>-----<span class="w"> </span>-<span class="w"> </span>-----
+<span class="m">704942</span>.chadmin*<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>regular<span class="w">  </span>run.b.day*<span class="w">   </span><span class="m">8284</span><span class="w">  </span><span class="m">16</span><span class="w"> </span><span class="m">576</span><span class="w">    </span>--<span class="w">  </span><span class="m">12</span>:00<span class="w"> </span>R<span class="w"> </span><span class="m">00</span>:00
+<span class="m">704945</span>.chadmin*<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>regular<span class="w">  </span>st_archiv*<span class="w">    </span>--<span class="w">    </span><span class="m">1</span><span class="w">   </span><span class="m">1</span><span class="w">    </span>--<span class="w">  </span><span class="m">00</span>:20<span class="w"> </span>H<span class="w">   </span>--<span class="w">  </span>
+</pre></div>
+</div>
+</div>
+<p>Note, there may be a slight delay from submitting CESM until the jobs appear in the queue. Once the jobs have completed, they will disappear from the qstat command.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="model-output">
+<h1>Model output<a class="headerlink" href="#model-output" title="Permalink to this heading">#</a></h1>
+<p>If the model run is successful, the CESM netcdf output history files are automatically moved to a short-term Archive Directory (Your <em>Storage</em>; <code class="docutils literal notranslate"><span class="pre">$DOUT_S_ROOT</span></code>).<br />
+<strong>Notes:</strong></p>
+<ul class="simple">
+<li><p>If a model run was unsuccessful the output remains in the Run Directory (your <em>Factory</em>; <code class="docutils literal notranslate"><span class="pre">$RUNDIR</span></code>) and the short-term archive is not created.</p></li>
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">$RUNDIR</span></code> and <code class="docutils literal notranslate"><span class="pre">$DOUT_S_ROOT</span></code> are in the NCAR HPC scratch space. This space is scrubbed, and files deleted after a number of days. Thus, it is a good idea to move your model output files from the short-term archive to a more permanent location as soon as you are able.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="more-controls-xml-change">
+<h1>More controls: XML change<a class="headerlink" href="#more-controls-xml-change" title="Permalink to this heading">#</a></h1>
+<p>Much of the control of the running of your CESM simulation is done through modifying the <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> file, using the <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> command.</p>
+<p>The <strong>step</strong> to modify the <strong>xml</strong> in <code class="docutils literal notranslate"><span class="pre">$CASEROOT</span></code> is:</p>
+<div class="alert alert-info" style="text-align: left;">
+./xmlchange VARIABLE=VALUE
+</div>
+<p>For example, the following command changes the simulation length of a single submission to 1 month (the default setting is 5 days):</p>
+<div class="alert alert-info" style="text-align: left;">
+./xmlchange STOP_OPTION=nmonths,STOP_N=1
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> controls the units in which you are specifying the length of the simulation</p></li>
+<li><p>and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> is the length in those units.</p></li>
+</ul>
+<p>You can check values of specific variables using:</p>
+<div class="alert alert-info" style="text-align: left;">
+./xmlquery STOP_OPTION,STOP_N
+</div>
+<p>You can find a listing of all the available XML variables along with their description in <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> by running the following commands from your case directory</p>
+<div class="alert alert-info" style="text-align: left;">
+./xmlquery --listall --file env_run.xml --description
+</div>
+<p>Note: Typically, supercomputers have limits on how long you can
+run at once. For instance, some supercomputers have a wallclock
+limit of 12 hours in real time, meaning that you can only run
+continuously for 12 hours.
+In that case, you would want to set <code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> to an appropriate length that can be completed within 12 hours of real time.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="more-controls-namelist-change">
+<h1>More controls: namelist change<a class="headerlink" href="#more-controls-namelist-change" title="Permalink to this heading">#</a></h1>
+<p>To control how the code is run (such as specific cloud parameters and atmospheric CO2 concentration), we modify the namelist settings.</p>
+<p>The <strong>steps</strong> to modify the <strong>namelists</strong> in <code class="docutils literal notranslate"><span class="pre">$CASEROOT</span></code> are:</p>
+<div class="alert alert-info">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- edit the ``user_nl_xxx`` files (use your favorite text editor, such as Nano, vi, etc.)
+
+- generate the namelists by running `./preview_namelists`.  
+</pre></div>
+</div>
+</div>
+<p>Complete documentation about the namelist variables can be found on the <a class="reference external" href="https://www2.cesm.ucar.edu/models/cesm2/settings/current/">CESM webpage.</a></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>CESM is a software primarily in FORTRAN and You need to build the executable.</p></li>
+<li><p>Like managing an EV company, you deal with multiple workplaces. What are they?</p></li>
+<li><p>Build and run a CESM case in four steps. What are they?</p></li>
+<li><p>How do you further customize the simulation?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="optional-advanced-resources">
+<h1>Optional advanced resources<a class="headerlink" href="#optional-advanced-resources" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Check out the full yearly CESM Tutorial <a class="reference external" href="https://ncar.github.io/CESM-Tutorial/README.html">here</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESMCI/visualCaseGen">visualCaseGen</a>: a GUI that runs on JupyterLab and guides the users through the process of creating CESM cases, e.g., choosing appropriate compsets and grids.</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "npl-2024a"
+        },
+        kernelOptions: {
+            name: "npl-2024a",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'npl-2024a'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0_Prerequisites_3_ncar_account_jupyterhub.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NSF NCAR Advanced Research Computing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_run_CESM_in_4steps_exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running CESM in Four Steps - Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running CESM in Four Steps - Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-as-a-software">CESM as a software</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">CESM Workspaces (assuming you run a company that builds new  electric cars)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-preindustrial-control-simulation-in-four-steps">Run a preindustrial control simulation in four steps</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-create-newcase">Further explanations on <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-setup">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-build">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.build</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-submit">Further explanations on <code class="docutils literal notranslate"><span class="pre">case.submit</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-job-status">Check job status</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output">Model output</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-controls-xml-change">More controls: XML change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-controls-namelist-change">More controls: namelist change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-advanced-resources">Optional advanced resources</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jiang Zhu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
