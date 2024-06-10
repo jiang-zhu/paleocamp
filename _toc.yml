@@ -3,11 +3,17 @@
 
 format: jb-book
 root: 0_Overview.ipynb
-chapters:
-- file: 0_Prerequisites_1_unix.ipynb            
-- file: 0_Prerequisites_2_python_jupyter.ipynb  
-- file: 0_Prerequisites_3_ncar_account_jupyterhub.ipynb
-- file: 1_run_CESM_in_4steps_intro.ipynb                 
-- file: 2_run_CESM_in_4steps_exercises.ipynb             
-- file: 3_analyze_CESM_output.ipynb
-- file: 4_additional_info_examples.ipynb
+parts:
+  - caption: Prerequisites
+    numbered: True
+    chapters:
+      - file: 0_Prerequisites_1_unix.ipynb
+      - file: 0_Prerequisites_2_python_jupyter.ipynb
+      - file: 0_Prerequisites_3_ncar_account_jupyterhub.ipynb
+  - caption: Main Learning Modules
+    numbered: True
+    chapters:
+      - file: 1_run_CESM_in_4steps_intro.ipynb                 
+      - file: 2_run_CESM_in_4steps_exercises.ipynb             
+      - file: 3_analyze_CESM_output.ipynb
+      - file: 4_additional_info_examples.ipynb
