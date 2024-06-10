@@ -37,12 +37,12 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-(ds.TP*1000).mean('time').plot(
-    figsize=(4, 2),
-    cmap='YlGnBu',
-    levels=np.linspace(0, 16, 17),
-    subplot_kws={'projection': ccrs.Robinson(central_longitude=210)},
-    transform=ccrs.PlateCarree())
+tp = ds.TP.mean('time') * 1000.
+tp.plot(figsize=(4, 2),
+        cmap='YlGnBu',
+        levels=np.linspace(0, 16, 17),
+        subplot_kws={'projection': ccrs.Robinson(central_longitude=210)},
+        transform=ccrs.PlateCarree())
 plt.gca().coastlines(linewidth=0.5)
 -------------------
 
