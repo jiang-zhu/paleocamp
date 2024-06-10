@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Python &amp; Jupyter Basics &#8212; Running CESM2 in four steps &amp; analyzing output</title>
+    <title>Python &amp; Jupyter Basics &#8212; Running CESM2 in four steps &amp; analyzing output</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '0_Prerequisites_2_python_jupyter';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. NSF NCAR Advanced Research Computing" href="0_Prerequisites_3_ncar_account_jupyterhub.html" />
-    <link rel="prev" title="1. Basic Unix Commands" href="0_Prerequisites_1_unix.html" />
+    <link rel="next" title="NSF NCAR Advanced Research Computing" href="0_Prerequisites_3_ncar_account_jupyterhub.html" />
+    <link rel="prev" title="Basic Unix Commands" href="0_Prerequisites_1_unix.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,16 +178,16 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_1_unix.html">1. Basic Unix Commands</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Python &amp; Jupyter Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">3. NSF NCAR Advanced Research Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_1_unix.html">Basic Unix Commands</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python &amp; Jupyter Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">NSF NCAR Advanced Research Computing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Learning Modules</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">4. Running CESM in Four Steps - Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_run_CESM_in_4steps_exercises.html">5. Running CESM in Four Steps - Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">6. CESM Output and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">7. Additional information and examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">1. Running CESM in Four Steps - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_run_CESM_in_4steps_exercises.html">2. Running CESM in Four Steps - Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">3. CESM Output and Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">4. Additional information and examples</a></li>
 </ul>
 
     </div>
@@ -383,20 +383,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">2.1. Why Python?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pangeo-is-the-recommended-python-software-stack">2.1.1. <em>Pangeo</em> is the recommended Python software stack:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-external-python-libs-on-my-laptop-desktop">2.1.2. “How to install external python libs on my laptop / desktop?”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">2.1.3. Hello world</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-python-c-and-matlab">2.1.4. Comparison between Python, C, and Matlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pangeo-is-the-recommended-python-software-stack"><em>Pangeo</em> is the recommended Python software stack:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-external-python-libs-on-my-laptop-desktop">“How to install external python libs on my laptop / desktop?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello world</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-python-c-and-matlab">Comparison between Python, C, and Matlab</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">2.2. Jupyter</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-extensibility">2.2.1. Reproducibility &amp; Extensibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types">2.2.2. A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">2.2.3. How to run a cell?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-extensibility">Reproducibility &amp; Extensibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types">A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">How to run a cell?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-learning-resources-optional">2.3. More learning resources (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-learning-resources-optional">More learning resources (optional)</a></li>
 </ul>
             </nav>
         </div>
@@ -410,10 +410,10 @@ document.write(`
                   
   <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="python-jupyter-basics">
-<h1><span class="section-number">2. </span>Python &amp; Jupyter Basics<a class="headerlink" href="#python-jupyter-basics" title="Permalink to this heading">#</a></h1>
+<h1>Python &amp; Jupyter Basics<a class="headerlink" href="#python-jupyter-basics" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="why-python">
-<h2><span class="section-number">2.1. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this heading">#</a></h2>
+<h2>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Python is <em>open source</em>.</p></li>
 <li><p>Python is a <em>high-productivity</em> language: <em>do more with less code</em>.</p></li>
@@ -422,7 +422,7 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="pangeo-is-the-recommended-python-software-stack">
-<h3><span class="section-number">2.1.1. </span><em>Pangeo</em> is the recommended Python software stack:<a class="headerlink" href="#pangeo-is-the-recommended-python-software-stack" title="Permalink to this heading">#</a></h3>
+<h3><em>Pangeo</em> is the recommended Python software stack:<a class="headerlink" href="#pangeo-is-the-recommended-python-software-stack" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://xarray.pydata.org/en/stable/">Xarray</a>: Read and write NetCDF files</p></li>
 <li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter</a>: A browser-based, “terminal”-like interface with nice graphics capabilities</p></li>
@@ -441,7 +441,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-to-install-external-python-libs-on-my-laptop-desktop">
-<h3><span class="section-number">2.1.2. </span>“How to install external python libs on my laptop / desktop?”<a class="headerlink" href="#how-to-install-external-python-libs-on-my-laptop-desktop" title="Permalink to this heading">#</a></h3>
+<h3>“How to install external python libs on my laptop / desktop?”<a class="headerlink" href="#how-to-install-external-python-libs-on-my-laptop-desktop" title="Permalink to this heading">#</a></h3>
 <p>To best way to get the scientific Python environment is using the <a class="reference external" href="https://conda.io/docs/">Conda package management system</a>. Please follow the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">official installation guide</a> for installing on</p>
 <ul class="simple">
 <li><p>Linux: <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/linux.html">https://conda.io/projects/conda/en/latest/user-guide/install/linux.html</a></p></li>
@@ -451,7 +451,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="hello-world">
-<h3><span class="section-number">2.1.3. </span>Hello world<a class="headerlink" href="#hello-world" title="Permalink to this heading">#</a></h3>
+<h3>Hello world<a class="headerlink" href="#hello-world" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
@@ -467,7 +467,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="comparison-between-python-c-and-matlab">
-<h3><span class="section-number">2.1.4. </span>Comparison between Python, C, and Matlab<a class="headerlink" href="#comparison-between-python-c-and-matlab" title="Permalink to this heading">#</a></h3>
+<h3>Comparison between Python, C, and Matlab<a class="headerlink" href="#comparison-between-python-c-and-matlab" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Python uses 0 based ordering</p></li>
 <li><p>Python uses <code class="docutils literal notranslate"><span class="pre">#</span></code> sign for commenting</p></li>
@@ -475,24 +475,23 @@ document.write(`
 </ul>
 <p><img src="./images/python_vs_c_vs_matlab.png"
          width="50%" alt="cell_type" align="left"
-         style="horizontal-align:top;margin:10px 10px"/><br></p>
+         style="horizontal-align:top;margin:10px 10px"/></p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="jupyter">
-<h2><span class="section-number">2.2. </span>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this heading">#</a></h2>
-<hr class="docutils" />
+<h2>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this heading">#</a></h2>
 <p>Jupyter <em>is</em> a webserver, for interactive computing across all programming languages.</p>
 <p>When you run it on your laptop (<code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> or <code class="docutils literal notranslate"><span class="pre">JupyterLab</span></code>), you can directly interact with the webserver from your browser.<br />
 When you are remote, you just communicate HTML (and serialized data) back and forth from your browser to the webserver.</p>
 <section id="reproducibility-extensibility">
-<h3><span class="section-number">2.2.1. </span>Reproducibility &amp; Extensibility<a class="headerlink" href="#reproducibility-extensibility" title="Permalink to this heading">#</a></h3>
+<h3>Reproducibility &amp; Extensibility<a class="headerlink" href="#reproducibility-extensibility" title="Permalink to this heading">#</a></h3>
 <p>It is fast and efficient.<br />
 Jupyter allows you to save your work in a notebook (<code class="docutils literal notranslate"><span class="pre">ipynb</span></code>), so you can share your work with other people simply by sharing your notebook file.  Other people can use it and extend it for their own purposes.</p>
 </section>
 <hr class="docutils" />
 <section id="a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types">
-<h3><span class="section-number">2.2.2. </span>A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types<a class="headerlink" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types" title="Permalink to this heading">#</a></h3>
+<h3>A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types<a class="headerlink" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Code</span></code> cell contains Python code</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Markdown</span></code> cell has Markup language and can be used for notes/comments</p></li>
@@ -504,14 +503,14 @@ Jupyter allows you to save your work in a notebook (<code class="docutils litera
 </section>
 <hr class="docutils" />
 <section id="how-to-run-a-cell">
-<h3><span class="section-number">2.2.3. </span>How to run a cell?<a class="headerlink" href="#how-to-run-a-cell" title="Permalink to this heading">#</a></h3>
+<h3>How to run a cell?<a class="headerlink" href="#how-to-run-a-cell" title="Permalink to this heading">#</a></h3>
 <p>To run a cell in a notebook. <strong>Click on the cell and press: <code class="docutils literal notranslate"><span class="pre">Shift+return</span></code></strong></p>
 <p><img alt="Running a cell" src="_images/running_cell.png" /></p>
 <p style="text-align: center;"> Figure: Running a cell </p></section>
 </section>
 <hr class="docutils" />
 <section id="more-learning-resources-optional">
-<h2><span class="section-number">2.3. </span>More learning resources (optional)<a class="headerlink" href="#more-learning-resources-optional" title="Permalink to this heading">#</a></h2>
+<h2>More learning resources (optional)<a class="headerlink" href="#more-learning-resources-optional" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ncar.github.io/python-tutorial/tutorials/yourfirst.html">NCAR Your First Python Tutorial</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=kstc-6uz7AQ">Numpy Tutorial</a></p></li>
@@ -562,7 +561,7 @@ Jupyter allows you to save your work in a notebook (<code class="docutils litera
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Basic Unix Commands</p>
+        <p class="prev-next-title">Basic Unix Commands</p>
       </div>
     </a>
     <a class="right-next"
@@ -570,7 +569,7 @@ Jupyter allows you to save your work in a notebook (<code class="docutils litera
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>NSF NCAR Advanced Research Computing</p>
+        <p class="prev-next-title">NSF NCAR Advanced Research Computing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -590,20 +589,20 @@ Jupyter allows you to save your work in a notebook (<code class="docutils litera
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">2.1. Why Python?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pangeo-is-the-recommended-python-software-stack">2.1.1. <em>Pangeo</em> is the recommended Python software stack:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-external-python-libs-on-my-laptop-desktop">2.1.2. “How to install external python libs on my laptop / desktop?”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">2.1.3. Hello world</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-python-c-and-matlab">2.1.4. Comparison between Python, C, and Matlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pangeo-is-the-recommended-python-software-stack"><em>Pangeo</em> is the recommended Python software stack:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-external-python-libs-on-my-laptop-desktop">“How to install external python libs on my laptop / desktop?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello world</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-python-c-and-matlab">Comparison between Python, C, and Matlab</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">2.2. Jupyter</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-extensibility">2.2.1. Reproducibility &amp; Extensibility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types">2.2.2. A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">2.2.3. How to run a cell?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-extensibility">Reproducibility &amp; Extensibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-notebook-is-composed-of-cells-a-cell-could-have-three-types">A <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is composed of cells. A <code class="docutils literal notranslate"><span class="pre">Cell</span></code> could have three types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">How to run a cell?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-learning-resources-optional">2.3. More learning resources (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-learning-resources-optional">More learning resources (optional)</a></li>
 </ul>
   </nav></div>
 
