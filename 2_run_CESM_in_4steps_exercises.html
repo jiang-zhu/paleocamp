@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Running CESM in Four Steps - Exercises &#8212; Running CESM2 in four steps &amp; analyzing output</title>
+    <title>27. Running CESM in Four Steps - Exercises &#8212; Running CESM2 in four steps &amp; analyzing output</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '2_run_CESM_in_4steps_exercises';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="CESM Output and Analysis" href="3_analyze_CESM_output.html" />
-    <link rel="prev" title="Running CESM in Four Steps - Introduction" href="1_run_CESM_in_4steps_intro.html" />
+    <link rel="next" title="35. CESM Output and Analysis" href="3_analyze_CESM_output.html" />
+    <link rel="prev" title="17. Running CESM in Four Steps - Introduction" href="1_run_CESM_in_4steps_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,28 +172,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="0_Overview.html">
-                    Running CESM2 in four steps & analyzing output
+                    Prerequisites
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_1_unix.html">Basic Unix Commands</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_1_unix.html">1. Basic Unix Commands</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_2_python_jupyter.html">Python &amp; Jupyter Basics</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">NSF NCAR Advanced Research Computing</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">Running CESM in Four Steps - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_2_python_jupyter.html">3. Python &amp; Jupyter Basics</a></li>
 
 
 
@@ -203,7 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running CESM in Four Steps - Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">13. NSF NCAR Advanced Research Computing</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Learning Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">17. Running CESM in Four Steps - Introduction</a></li>
 
 
 
@@ -211,7 +205,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">CESM Output and Analysis</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. Running CESM in Four Steps - Exercises</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">35. CESM Output and Analysis</a></li>
 
 
 
@@ -220,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">Additional information and examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">44. Additional information and examples</a></li>
 
 
 
@@ -423,39 +427,39 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running CESM in Four Steps - Exercises</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">27. Running CESM in Four Steps - Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">27.1. Learning Objectives:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-started">How to get started?</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login">Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">Start the JupyterHub with the Derecho node</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-terminal-within-the-jupyterhub">Launch a terminal within the JupyterHub</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-started">28. How to get started?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login">28.1. Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">28.1.1. Start the JupyterHub with the Derecho node</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-terminal-within-the-jupyterhub">28.1.2. Launch a terminal within the JupyterHub</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly">Option 2 (most commonly used): use terminal from your system directly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly">28.2. Option 2 (most commonly used): use terminal from your system directly</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-cesm-directories">REMINDER: CESM directories</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year">Task 1: run a fully coupled preindustrial simulation for one year</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">Hints:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further information</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-cesm-directories">29. REMINDER: CESM directories</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year">30. Task 1: run a fully coupled preindustrial simulation for one year</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">30.1. Hints:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">30.2. Further information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year">Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hints:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year">31. Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">31.1. Hints:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-how-to-validate-your-simulation-setup">Task 3: how to validate your simulation setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Hints:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-how-to-validate-your-simulation-setup">32. Task 3: how to validate your simulation setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">32.1. Hints:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation">Advanced module: recreate Jiang’s CESM2-PaleoCalibr LGM simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-case">1. Create new case</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">2. case setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-build">3. case build</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job">4. submit job</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">33. Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation">34. Advanced module: recreate Jiang’s CESM2-PaleoCalibr LGM simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-case">34.1. 1. Create new case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">34.2. 2. case setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-build">34.3. 3. case build</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job">34.4. 4. submit job</a></li>
 </ul>
 </li>
 </ul>
@@ -476,7 +480,7 @@ document.write(`
          align="right"
          style="horizontal-align:top;margin:0px 0px"/></p>
 <section class="tex2jax_ignore mathjax_ignore" id="running-cesm-in-four-steps-exercises">
-<h1>Running CESM in Four Steps - Exercises<a class="headerlink" href="#running-cesm-in-four-steps-exercises" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">27. </span>Running CESM in Four Steps - Exercises<a class="headerlink" href="#running-cesm-in-four-steps-exercises" title="Permalink to this heading">#</a></h1>
 <p><strong>Tutorial at <a class="reference external" href="https://paleoclimate.camp/">the 2024 paleoCAMP</a> | June 18–July 1, 2024</strong></p>
 <p><a class="reference external" href="https://staff.cgd.ucar.edu/jiangzhu/">Jiang Zhu</a><br />
 <a class="reference external" href="mailto:jiangzhu&#37;&#52;&#48;ucar&#46;edu">jiangzhu<span>&#64;</span>ucar<span>&#46;</span>edu</a><br />
@@ -484,7 +488,7 @@ Climate &amp; Global Dynamics Laboratory<br />
 NSF National Center for Atmospheric Research</p>
 <hr class="docutils" />
 <section id="learning-objectives">
-<h2>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">27.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Run simple CESM simulations</p></li>
 <li><p>Gain hands-on skills on customizing the run length and namelists</p></li>
@@ -496,24 +500,24 @@ NSF National Center for Atmospheric Research</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="how-to-get-started">
-<h1>How to get started?<a class="headerlink" href="#how-to-get-started" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">28. </span>How to get started?<a class="headerlink" href="#how-to-get-started" title="Permalink to this heading">#</a></h1>
 <section id="option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login">
-<h2>Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login<a class="headerlink" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.1. </span>Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login<a class="headerlink" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login" title="Permalink to this heading">#</a></h2>
 <section id="start-the-jupyterhub-with-the-derecho-node">
-<h3>Start the JupyterHub with the Derecho node<a class="headerlink" href="#start-the-jupyterhub-with-the-derecho-node" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">28.1.1. </span>Start the JupyterHub with the Derecho node<a class="headerlink" href="#start-the-jupyterhub-with-the-derecho-node" title="Permalink to this heading">#</a></h3>
 <p><img src="./images/jupyterhub_derecho_login.png"
          width="50%"
          style="horizontal-align:top;margin:0px 0px"/><br></p>
 </section>
 <section id="launch-a-terminal-within-the-jupyterhub">
-<h3>Launch a terminal within the JupyterHub<a class="headerlink" href="#launch-a-terminal-within-the-jupyterhub" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">28.1.2. </span>Launch a terminal within the JupyterHub<a class="headerlink" href="#launch-a-terminal-within-the-jupyterhub" title="Permalink to this heading">#</a></h3>
 <p><img src="./images/launch_a_terminal.png"
          width="50%"
          style="horizontal-align:top;margin:0px 0px"/><br></p>
 </section>
 </section>
 <section id="option-2-most-commonly-used-use-terminal-from-your-system-directly">
-<h2>Option 2 (most commonly used): use terminal from your system directly<a class="headerlink" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.2. </span>Option 2 (most commonly used): use terminal from your system directly<a class="headerlink" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly" title="Permalink to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-XY<span class="w"> </span>YOUR_SUERNAME@derecho.hpc.ucar.edu
 </pre></div>
 </div>
@@ -525,7 +529,7 @@ NSF National Center for Atmospheric Research</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="reminder-cesm-directories">
-<h1>REMINDER: CESM directories<a class="headerlink" href="#reminder-cesm-directories" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">29. </span>REMINDER: CESM directories<a class="headerlink" href="#reminder-cesm-directories" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Source code directory (“Headquarter”): <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5/</span></code></p></li>
 <li><p>Case directory (“Production Control Room”): <code class="docutils literal notranslate"><span class="pre">~/cases/YOUR_CASENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">/glade/u/home/YOUR_USERNAME/cases/YOUR_CASENAME</span></code></p></li>
@@ -535,9 +539,9 @@ NSF National Center for Atmospheric Research</p>
 </div></section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year">
-<h1>Task 1: run a fully coupled preindustrial simulation for one year<a class="headerlink" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">30. </span>Task 1: run a fully coupled preindustrial simulation for one year<a class="headerlink" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year" title="Permalink to this heading">#</a></h1>
 <section id="hints">
-<h2>Hints:<a class="headerlink" href="#hints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">30.1. </span>Hints:<a class="headerlink" href="#hints" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>What are the four steps?</p></li>
 <li><p>What is the compset for fully coupled preindustrial?</p></li>
@@ -575,7 +579,7 @@ NSF National Center for Atmospheric Research</p>
 </details>
 </div></section>
 <section id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">30.2. </span>Further information<a class="headerlink" href="#further-information" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Building the executable may take more than 10 minutes.</p></li>
 <li><p>While you wait, open a second terminal and practice your Unix commands (such as <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, and <code class="docutils literal notranslate"><span class="pre">grep</span></code>) by visiting your directories of “Production Control Room”, “Factory”, and “Headquarter”, and see what are there.</p></li>
@@ -586,9 +590,9 @@ NSF National Center for Atmospheric Research</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year">
-<h1>Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year<a class="headerlink" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">31. </span>Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year<a class="headerlink" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h2>Hints:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">31.1. </span>Hints:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Different from the preindustrial control, we don’t have a compset available for the mid-Holocene. You need to add namelist changes to user_nl_cpl to set up orbital configurations.</p></li>
 <li><p>According to Table 1 of <a class="reference external" href="https://gmd.copernicus.org/articles/10/3979/2017/gmd-10-3979-2017.pdf">Otto-Bliesner et al., (2017)</a>, Eccentricity = 0.018682, Obliquity (degrees) = 24.105, Perihelion = 0.87 (for simplicity, we don’t consider the other forcings here, i.e., CO2)</p></li>
@@ -639,9 +643,9 @@ NSF National Center for Atmospheric Research</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="task-3-how-to-validate-your-simulation-setup">
-<h1>Task 3: how to validate your simulation setup<a class="headerlink" href="#task-3-how-to-validate-your-simulation-setup" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">32. </span>Task 3: how to validate your simulation setup<a class="headerlink" href="#task-3-how-to-validate-your-simulation-setup" title="Permalink to this heading">#</a></h1>
 <section id="id2">
-<h2>Hints:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">32.1. </span>Hints:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Going through the log files (in the RUN directory, aka “Factory”) is one way to see how the model is being run.</p></li>
 <li><p>Examining <code class="docutils literal notranslate"><span class="pre">*_in</span></code> files (e.g., <code class="docutils literal notranslate"><span class="pre">drv_in</span></code> in the CasesDocs directory within the Case Directory) is another way to check the setup.</p></li>
@@ -687,7 +691,7 @@ NSF National Center for Atmospheric Research</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">33. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Set up and run a CESM simulation in four steps</p></li>
 <li><p>Customize the simulation with <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> and namelist change</p></li>
@@ -696,14 +700,14 @@ NSF National Center for Atmospheric Research</p>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation">
-<h1>Advanced module: recreate Jiang’s <a class="reference external" href="https://doi.org/10.1029/2021MS002776">CESM2-PaleoCalibr LGM simulation</a><a class="headerlink" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">34. </span>Advanced module: recreate Jiang’s <a class="reference external" href="https://doi.org/10.1029/2021MS002776">CESM2-PaleoCalibr LGM simulation</a><a class="headerlink" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>The goal is to show you how a complicated paleo simulation is done.</p></li>
 <li><p>Be aware that <em><strong>many efforts went to develop the LGM boundary conditions</strong></em>(not shown here), which may take months.</p></li>
 <li><p><em><strong>Still four steps(!)</strong></em>, but with more XML and namelist changes to apply the paleoclimate boundary conditions.</p></li>
 </ul>
 <section id="create-new-case">
-<h2>1. Create new case<a class="headerlink" href="#create-new-case" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.1. </span>1. Create new case<a class="headerlink" href="#create-new-case" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>A long-format compset was used to have more precise control of how I want to run each component</p></li>
 </ul>
@@ -713,7 +717,7 @@ NSF National Center for Atmospheric Research</p>
 </div>
 </section>
 <section id="case-setup">
-<h2>2. case setup<a class="headerlink" href="#case-setup" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.2. </span>2. case setup<a class="headerlink" href="#case-setup" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>I have FORTRAN code changes that need to be put into SourceMods/src.xxx/</p></li>
 <li><p>I specify how many CPUs to use for each component for a better computation performance</p></li>
@@ -760,7 +764,7 @@ cp<span class="w"> </span>/glade/u/home/jiangzhu/cesm/backup/nimax_limiterA/micr
 </div>
 </section>
 <section id="case-build">
-<h2>3. case build<a class="headerlink" href="#case-build" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.3. </span>3. case build<a class="headerlink" href="#case-build" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>I usually set up namelist changes before running <code class="docutils literal notranslate"><span class="pre">case.build</span></code></p></li>
 <li><p>user_nl_cpl: orbital change</p></li>
@@ -835,7 +839,7 @@ cp<span class="w"> </span>/glade/u/home/jiangzhu/cesm/backup/nimax_limiterA/micr
 </div>
 </section>
 <section id="submit-job">
-<h2>4. submit job<a class="headerlink" href="#submit-job" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.4. </span>4. submit job<a class="headerlink" href="#submit-job" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The model runs 46 years per wallclock day, so STOP_N=20 works well (20 years can be finished within the limit of JOB_WALLCLOCK_TIME of 12 hours)</p></li>
 </ul>
@@ -885,7 +889,7 @@ cp<span class="w"> </span>/glade/u/home/jiangzhu/cesm/backup/nimax_limiterA/micr
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Running CESM in Four Steps - Introduction</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Running CESM in Four Steps - Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -893,7 +897,7 @@ cp<span class="w"> </span>/glade/u/home/jiangzhu/cesm/backup/nimax_limiterA/micr
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CESM Output and Analysis</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>CESM Output and Analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -913,39 +917,39 @@ cp<span class="w"> </span>/glade/u/home/jiangzhu/cesm/backup/nimax_limiterA/micr
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Running CESM in Four Steps - Exercises</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">27. Running CESM in Four Steps - Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">27.1. Learning Objectives:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-started">How to get started?</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login">Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">Start the JupyterHub with the Derecho node</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-terminal-within-the-jupyterhub">Launch a terminal within the JupyterHub</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-started">28. How to get started?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-the-jupyterhub-and-chose-derecho-during-login">28.1. Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">28.1.1. Start the JupyterHub with the Derecho node</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-a-terminal-within-the-jupyterhub">28.1.2. Launch a terminal within the JupyterHub</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly">Option 2 (most commonly used): use terminal from your system directly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-most-commonly-used-use-terminal-from-your-system-directly">28.2. Option 2 (most commonly used): use terminal from your system directly</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-cesm-directories">REMINDER: CESM directories</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year">Task 1: run a fully coupled preindustrial simulation for one year</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">Hints:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further information</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder-cesm-directories">29. REMINDER: CESM directories</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-run-a-fully-coupled-preindustrial-simulation-for-one-year">30. Task 1: run a fully coupled preindustrial simulation for one year</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">30.1. Hints:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">30.2. Further information</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year">Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hints:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-run-a-fully-coupled-mid-holocene-simulation-with-the-orbital-forcing-for-one-year">31. Task 2: run a fully coupled mid-Holocene simulation with the orbital forcing for one year</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">31.1. Hints:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-how-to-validate-your-simulation-setup">Task 3: how to validate your simulation setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Hints:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-how-to-validate-your-simulation-setup">32. Task 3: how to validate your simulation setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">32.1. Hints:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation">Advanced module: recreate Jiang’s CESM2-PaleoCalibr LGM simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-case">1. Create new case</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">2. case setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-build">3. case build</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job">4. submit job</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">33. Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-module-recreate-jiang-s-cesm2-paleocalibr-lgm-simulation">34. Advanced module: recreate Jiang’s CESM2-PaleoCalibr LGM simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-case">34.1. 1. Create new case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-setup">34.2. 2. case setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-build">34.3. 3. case build</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job">34.4. 4. submit job</a></li>
 </ul>
 </li>
 </ul>

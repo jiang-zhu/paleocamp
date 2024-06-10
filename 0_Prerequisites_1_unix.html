@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic Unix Commands &#8212; Running CESM2 in four steps &amp; analyzing output</title>
+    <title>1. Basic Unix Commands &#8212; Running CESM2 in four steps &amp; analyzing output</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '0_Prerequisites_1_unix';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python &amp; Jupyter Basics" href="0_Prerequisites_2_python_jupyter.html" />
-    <link rel="prev" title="Running CESM2 in four steps &amp; analyzing output" href="0_Overview.html" />
+    <link rel="next" title="3. Python &amp; Jupyter Basics" href="0_Prerequisites_2_python_jupyter.html" />
+    <link rel="prev" title="Prerequisites" href="0_Overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,28 +172,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="0_Overview.html">
-                    Running CESM2 in four steps & analyzing output
+                    Prerequisites
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Unix Commands</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Basic Unix Commands</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_2_python_jupyter.html">Python &amp; Jupyter Basics</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">NSF NCAR Advanced Research Computing</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">Running CESM in Four Steps - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_2_python_jupyter.html">3. Python &amp; Jupyter Basics</a></li>
 
 
 
@@ -203,7 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="2_run_CESM_in_4steps_exercises.html">Running CESM in Four Steps - Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Prerequisites_3_ncar_account_jupyterhub.html">13. NSF NCAR Advanced Research Computing</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Learning Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_run_CESM_in_4steps_intro.html">17. Running CESM in Four Steps - Introduction</a></li>
 
 
 
@@ -211,7 +205,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">CESM Output and Analysis</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="2_run_CESM_in_4steps_exercises.html">27. Running CESM in Four Steps - Exercises</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_analyze_CESM_output.html">35. CESM Output and Analysis</a></li>
 
 
 
@@ -220,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">Additional information and examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_additional_info_examples.html">44. Additional information and examples</a></li>
 
 
 
@@ -423,20 +427,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Unix Commands</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-change-directory">cd (Change Directory):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-list">ls (List):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-print-working-directory">pwd (Print Working Directory):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cp-copy">cp (Copy):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rm-remove">rm (Remove):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mv-move">mv (Move):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-less-file-content-viewer">more/less (File Content Viewer):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-global-regular-expression-print">grep (Global Regular Expression Print):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">wildcards (*):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-clone-get-code-from-github-respository">git clone (get code from GitHub respository)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Basic Unix Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-change-directory">1.1. cd (Change Directory):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-list">1.2. ls (List):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-print-working-directory">1.3. pwd (Print Working Directory):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cp-copy">1.4. cp (Copy):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rm-remove">1.5. rm (Remove):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mv-move">1.6. mv (Move):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-less-file-content-viewer">1.7. more/less (File Content Viewer):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-global-regular-expression-print">1.8. grep (Global Regular Expression Print):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">1.9. wildcards (*):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-clone-get-code-from-github-respository">1.10. git clone (get code from GitHub respository)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-tutorial-from-ucar-s-comet-program">Unix Tutorial from UCAR’s COMET Program</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-tutorial-from-ucar-s-comet-program">2. Unix Tutorial from UCAR’s COMET Program</a></li>
 </ul>
 
             </nav>
@@ -451,10 +455,10 @@ document.write(`
                   
   <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="basic-unix-commands">
-<h1>Basic Unix Commands<a class="headerlink" href="#basic-unix-commands" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Basic Unix Commands<a class="headerlink" href="#basic-unix-commands" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="cd-change-directory">
-<h2>cd (Change Directory):<a class="headerlink" href="#cd-change-directory" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>cd (Change Directory):<a class="headerlink" href="#cd-change-directory" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command is used to navigate from a directory to another directory.</p>
 <p><strong>Example</strong>:</p>
@@ -465,7 +469,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="ls-list">
-<h2>ls (List):<a class="headerlink" href="#ls-list" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>ls (List):<a class="headerlink" href="#ls-list" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command is used to list the files and directories in the current directory or a specified directory. It provides information about the contents of the directory, such as filenames, permissions, sizes, and timestamps.</p>
 <p><strong>Example</strong>:</p>
@@ -477,7 +481,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="pwd-print-working-directory">
-<h2>pwd (Print Working Directory):<a class="headerlink" href="#pwd-print-working-directory" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>pwd (Print Working Directory):<a class="headerlink" href="#pwd-print-working-directory" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command displays the name of the current working directory, which is the directory in which you are currently located. It helps you determine your current location in the directory tree.</p>
 <p><strong>Example</strong>:</p>
@@ -485,7 +489,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="cp-copy">
-<h2>cp (Copy):<a class="headerlink" href="#cp-copy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>cp (Copy):<a class="headerlink" href="#cp-copy" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cp</span></code> command copies files or directories from a source location to a destination location.</p>
 <p><strong>Example</strong>:</p>
@@ -494,7 +498,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="rm-remove">
-<h2>rm (Remove):<a class="headerlink" href="#rm-remove" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>rm (Remove):<a class="headerlink" href="#rm-remove" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command deletes files or directories. Be cautious, as the operation is irreversible.</p>
 <p><strong>Example</strong>:</p>
@@ -503,7 +507,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="mv-move">
-<h2>mv (Move):<a class="headerlink" href="#mv-move" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>mv (Move):<a class="headerlink" href="#mv-move" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">mv</span></code> command moves or renames files and directories. It can also be used to move files from one directory to another.</p>
 <p><strong>Example</strong>:</p>
@@ -512,7 +516,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="more-less-file-content-viewer">
-<h2>more/less (File Content Viewer):<a class="headerlink" href="#more-less-file-content-viewer" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.7. </span>more/less (File Content Viewer):<a class="headerlink" href="#more-less-file-content-viewer" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">more</span></code> allows you to view the content of a text file one page at a time.
 Similar to <code class="docutils literal notranslate"><span class="pre">more</span></code>, the command <code class="docutils literal notranslate"><span class="pre">less</span></code> lets you view the content of text files one page at a time.</p>
@@ -521,7 +525,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
 </section>
 <hr class="docutils" />
 <section id="grep-global-regular-expression-print">
-<h2>grep (Global Regular Expression Print):<a class="headerlink" href="#grep-global-regular-expression-print" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>grep (Global Regular Expression Print):<a class="headerlink" href="#grep-global-regular-expression-print" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">grep</span></code> searches for lines containing a specified pattern within one or more text files. Useful for text searching and pattern matching.</p>
 <p><strong>Example</strong>:</p>
@@ -531,7 +535,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
 </section>
 <hr class="docutils" />
 <section id="wildcards">
-<h2>wildcards (*):<a class="headerlink" href="#wildcards" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.9. </span>wildcards (*):<a class="headerlink" href="#wildcards" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>The symbol * can be used as a wildcard in Unix.  The * can be used to represent any combination of characters.  For example, suppose you want to search for the string <code class="docutils literal notranslate"><span class="pre">hello</span></code> but only in files that end in <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, you can use the following</p>
 <p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">hello</span> <span class="pre">*.txt</span></code></p>
@@ -539,7 +543,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
 </section>
 <hr class="docutils" />
 <section id="git-clone-get-code-from-github-respository">
-<h2>git clone (get code from GitHub respository)<a class="headerlink" href="#git-clone-get-code-from-github-respository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.10. </span>git clone (get code from GitHub respository)<a class="headerlink" href="#git-clone-get-code-from-github-respository" title="Permalink to this heading">#</a></h2>
 <p><strong>Description</strong>:</p>
 <p>Clones a repository into a newly created directory</p>
 <p><strong>Example</strong>:</p>
@@ -548,7 +552,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="unix-tutorial-from-ucar-s-comet-program">
-<h1>Unix Tutorial from UCAR’s COMET Program<a class="headerlink" href="#unix-tutorial-from-ucar-s-comet-program" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Unix Tutorial from UCAR’s COMET Program<a class="headerlink" href="#unix-tutorial-from-ucar-s-comet-program" title="Permalink to this heading">#</a></h1>
 <p>From the <a class="reference external" href="https://www.meted.ucar.edu/ucar/unix">Tutorial</a>, you can learn</p>
 <ul class="simple">
 <li><p>the basics of Unix file structures</p></li>
@@ -594,7 +598,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Running CESM2 in four steps &amp; analyzing output</p>
+        <p class="prev-next-title">Prerequisites</p>
       </div>
     </a>
     <a class="right-next"
@@ -602,7 +606,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python &amp; Jupyter Basics</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Python &amp; Jupyter Basics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -622,20 +626,20 @@ Similar to <code class="docutils literal notranslate"><span class="pre">more</sp
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Unix Commands</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-change-directory">cd (Change Directory):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-list">ls (List):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-print-working-directory">pwd (Print Working Directory):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cp-copy">cp (Copy):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rm-remove">rm (Remove):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mv-move">mv (Move):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-less-file-content-viewer">more/less (File Content Viewer):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-global-regular-expression-print">grep (Global Regular Expression Print):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">wildcards (*):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-clone-get-code-from-github-respository">git clone (get code from GitHub respository)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Basic Unix Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd-change-directory">1.1. cd (Change Directory):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-list">1.2. ls (List):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-print-working-directory">1.3. pwd (Print Working Directory):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cp-copy">1.4. cp (Copy):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rm-remove">1.5. rm (Remove):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mv-move">1.6. mv (Move):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-less-file-content-viewer">1.7. more/less (File Content Viewer):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grep-global-regular-expression-print">1.8. grep (Global Regular Expression Print):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">1.9. wildcards (*):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-clone-get-code-from-github-respository">1.10. git clone (get code from GitHub respository)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-tutorial-from-ucar-s-comet-program">Unix Tutorial from UCAR’s COMET Program</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-tutorial-from-ucar-s-comet-program">2. Unix Tutorial from UCAR’s COMET Program</a></li>
 </ul>
 
   </nav></div>
