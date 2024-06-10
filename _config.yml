@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Running CESM2 in four steps & analyzing output
+title: Running CESM2 in Four Steps & Analyzing Output
 author: Jiang Zhu
 logo: paleoCAMPLogo.png
 
