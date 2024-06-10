@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 0_Overview.ipynb
+root: intro
 parts:
   - caption: Prerequisites
     numbered: False
