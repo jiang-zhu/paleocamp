@@ -435,7 +435,7 @@ NSF National Center for Atmospheric Research</p>
 <hr class="docutils" />
 <p><strong>How to get started?</strong></p>
 <p><strong>Option 1: Launch a terminal from the JupyterHub and chose <em>Derecho</em> during login</strong></p>
-<p>Start the JupyterHub with the Derecho node<br />
+<p>Start the JupyterHub with the Derecho node and the <code class="docutils literal notranslate"><span class="pre">develop</span></code> queue<br />
 <img alt="JupyterHub Derecho login" src="_images/jupyterhub_derecho_login.png" /></p>
 <p>Launch a terminal within the JupyterHub<br />
 <img alt="JupyterHub terminal" src="_images/launch_a_terminal.png" /></p>
@@ -445,11 +445,11 @@ NSF National Center for Atmospheric Research</p>
 </div>
 <p><img alt="Derecho SSH" src="_images/derecho_ssh_login.png" /></p>
 <hr class="docutils" />
-<div class="alert alert-success">   
+<div class="alert alert-info">   
 <p><strong>REMINDER: CESM directories</strong></p>
 <ul class="simple">
-<li><p>Source code directory (“Headquarter”): <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5/</span></code></p></li>
-<li><p>Case directory (“Production Control Room”): <code class="docutils literal notranslate"><span class="pre">~/cases/YOUR_CASENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">/glade/u/home/YOUR_USERNAME/cases/YOUR_CASENAME</span></code></p></li>
+<li><p>Source Code Directory (“Headquarter”): <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5/</span></code></p></li>
+<li><p>Case Directory (“Production Control Room”): <code class="docutils literal notranslate"><span class="pre">~/cases/YOUR_CASENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">/glade/u/home/YOUR_USERNAME/cases/YOUR_CASENAME</span></code></p></li>
 <li><p>Run directory (“Factory”): <code class="docutils literal notranslate"><span class="pre">/glade/derecho/scratch/YOUR_USERNAME/YOUR_CASENAME/run</span></code></p></li>
 <li><p>Archive directory (“Storage”): <code class="docutils literal notranslate"><span class="pre">/glade/derecho/scratch/YOUR_USERNAME/archive/YOUR_CASENAME/</span></code></p></li>
 </ul>
@@ -470,7 +470,7 @@ NSF National Center for Atmospheric Research</p>
 <div class="alert alert-success">   
 <details>
 <summary><font face="Times New Roman" color='blue'>Click here for the solution</font></summary><br>
-<p><strong>1. create a new case:</strong> go into scripts directory in the CESM Code and run the <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command</p>
+<p><strong>1. create a new case:</strong> go into the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory in the CESM Code and run the <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/glade/work/jiangzhu/paleocamp/cesm2.1.5/cime/scripts
 ./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/cases/b.e21.B1850.f19_g17.piControl.001<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
 </pre></div>
@@ -482,7 +482,7 @@ NSF National Center for Atmospheric Research</p>
 </pre></div>
 </div>
 <br>   
-<p><strong>3. case build:</strong> stay in the Case Directory and run <code class="docutils literal notranslate"><span class="pre">case.build</span></code> (change the run length using <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> before or after)</p>
+<p><strong>3. case build:</strong> stay in the Case Directory and run <code class="docutils literal notranslate"><span class="pre">case.build</span></code> (change the run length using <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code>)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./xmlchange<span class="w"> </span><span class="nv">STOP_OPTION</span><span class="o">=</span>nyears,STOP_N<span class="o">=</span><span class="m">1</span>
 ./case.build
 </pre></div>
@@ -534,7 +534,7 @@ NSF National Center for Atmospheric Research</p>
 <br>   
 <p><strong>3. case build:</strong> stay in the Case Directory and run <code class="docutils literal notranslate"><span class="pre">case.build</span></code></p>
 <ul class="simple">
-<li><p>OPTION I: Add the following to user_nl_cpl</p></li>
+<li><p>Add the following to user_nl_cpl</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">orb_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fixed_parameters&quot;</span>
 <span class="w"> </span><span class="nv">orb_eccen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.018682
