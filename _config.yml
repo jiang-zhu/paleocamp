@@ -3,7 +3,7 @@
 
 title: Running CESM2 in Four Steps & Analyzing Output
 author: Jiang Zhu
-logo: paleoCAMPLogo.png
+logo: images/paleoCAMPLogo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

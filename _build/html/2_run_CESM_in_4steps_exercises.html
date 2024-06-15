@@ -449,7 +449,7 @@ NSF National Center for Atmospheric Research</p>
 <p><strong>REMINDER: CESM directories</strong></p>
 <ul class="simple">
 <li><p>Source Code Directory (“Headquarter”): <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5/</span></code></p></li>
-<li><p>Case Directory (“Production Control Room”): <code class="docutils literal notranslate"><span class="pre">~/cases/YOUR_CASENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">/glade/u/home/YOUR_USERNAME/cases/YOUR_CASENAME</span></code></p></li>
+<li><p>Case Directory (“Production Control Room”): <code class="docutils literal notranslate"><span class="pre">~/YOUR_CASENAME</span></code> or <code class="docutils literal notranslate"><span class="pre">/glade/u/home/YOUR_USERNAME/YOUR_CASENAME</span></code></p></li>
 <li><p>Run directory (“Factory”): <code class="docutils literal notranslate"><span class="pre">/glade/derecho/scratch/YOUR_USERNAME/YOUR_CASENAME/run</span></code></p></li>
 <li><p>Archive directory (“Storage”): <code class="docutils literal notranslate"><span class="pre">/glade/derecho/scratch/YOUR_USERNAME/archive/YOUR_CASENAME/</span></code></p></li>
 </ul>
@@ -462,9 +462,8 @@ NSF National Center for Atmospheric Research</p>
 <li><p>What are the four steps?</p></li>
 <li><p>What is the compset for fully coupled preindustrial?</p></li>
 <li><p>Use resolution of <code class="docutils literal notranslate"><span class="pre">f19_g17</span></code> for fast throughput</p></li>
-<li><p>Which XML variable should you change to tell the model to run for one year?</p></li>
-<li><p>XML change should be done before <code class="docutils literal notranslate"><span class="pre">case.submit</span></code></p></li>
-<li><p>Following the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM naming conventions</a>, consider using <code class="docutils literal notranslate"><span class="pre">b.e21.B1850.f19_g17.piControl.001</span></code> as the case name</p></li>
+<li><p>Following the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM naming conventions</a>, use <code class="docutils literal notranslate"><span class="pre">b.e21.B1850.f19_g17.piControl.001</span></code> as the case name</p></li>
+<li><p>Which XML variable should you change to tell the model to run for one year? (do this before <code class="docutils literal notranslate"><span class="pre">./case.submit</span></code>)</p></li>
 <li><p>It may take ~16 minutes to finish the one-year simulation.</p></li>
 </ul>
 <div class="alert alert-success">   
@@ -472,12 +471,12 @@ NSF National Center for Atmospheric Research</p>
 <summary><font face="Times New Roman" color='blue'>Click here for the solution</font></summary><br>
 <p><strong>1. create a new case:</strong> go into the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory in the CESM Code and run the <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/glade/work/jiangzhu/paleocamp/cesm2.1.5/cime/scripts
-./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/cases/b.e21.B1850.f19_g17.piControl.001<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
+./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/b.e21.B1850.f19_g17.piControl.001<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
 </pre></div>
 </div>
 <br>
 <p><strong>2. case setup:</strong> go into the Case Directory and run <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/cases/b.e21.B1850.f19_g17.piControl.001
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/b.e21.B1850.f19_g17.piControl.001
 ./case.setup
 </pre></div>
 </div>
@@ -510,24 +509,35 @@ NSF National Center for Atmospheric Research</p>
 <section id="id1">
 <h3><span class="section-number">2.2.1. </span>Hints:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Different from the preindustrial control, we don’t have a compset available for the mid-Holocene. You need to add namelist changes to user_nl_cpl to set up orbital configurations.</p></li>
-<li><p>According to Table 1 of <a class="reference external" href="https://gmd.copernicus.org/articles/10/3979/2017/gmd-10-3979-2017.pdf">Otto-Bliesner et al., (2017)</a>, Eccentricity = 0.018682, Obliquity (degrees) = 24.105, Perihelion = 0.87 (for simplicity, we don’t consider the other forcings here, i.e., CO2)</p></li>
-<li><p>Check out the meaning of <code class="docutils literal notranslate"><span class="pre">orb_mode</span></code> <a class="reference external" href="https://docs.cesm.ucar.edu/models/cesm2/settings/current/drv_nml.html">here</a> and decide which mode you should use</p></li>
-<li><p>Use your favorite text editor to change <code class="docutils literal notranslate"><span class="pre">user_nl_cpl</span></code>: such as vi, emacs, nano, etc. (double click to open, edit, and save works on JupyterHub)</p></li>
+<li><p>Use compset <code class="docutils literal notranslate"><span class="pre">B1850</span></code> and edit <code class="docutils literal notranslate"><span class="pre">user_nl_cpl</span></code> to set up the orbital configuration (no mid-Holocene compset available)</p></li>
+<li><p>Following the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM naming conventions</a>, use <code class="docutils literal notranslate"><span class="pre">b.e21.B1850.f19_g17.midHolocene.001</span></code> as the case name</p></li>
+<li><p>According to Table 1 of <a class="reference external" href="https://gmd.copernicus.org/articles/10/3979/2017/gmd-10-3979-2017.pdf">Otto-Bliesner et al., (2017)</a>, Eccentricity = 0.018682, Obliquity (degrees) = 24.105, Perihelion = 0.87 (for simplicity, we don’t consider the other forcings here, i.e., CO2)</p>
+<ul>
+<li><p>In the CESM world, this means</p>
+<ul>
+<li><p>orb_mode = “fixed_parameters”</p></li>
+<li><p>orb_eccen = 0.018682</p></li>
+<li><p>orb_obliq = 24.105</p></li>
+<li><p>orb_mvelp = 0.87</p></li>
+</ul>
+</li>
+<li><p>Search <code class="docutils literal notranslate"><span class="pre">orb_</span></code> <a class="reference external" href="https://docs.cesm.ucar.edu/models/cesm2/settings/current/drv_nml.html">here</a> to learn more</p></li>
+</ul>
+</li>
+<li><p>Use Unix editor <code class="docutils literal notranslate"><span class="pre">vi</span></code>/<code class="docutils literal notranslate"><span class="pre">emacs</span></code>/<code class="docutils literal notranslate"><span class="pre">nano</span></code>; Or, in JupyterHub, find <code class="docutils literal notranslate"><span class="pre">user_nl_cpl</span></code> from the left sidebar, click to open, edit, and save</p></li>
 <li><p>These namelist changes can be done after <code class="docutils literal notranslate"><span class="pre">case.build</span></code> but before <code class="docutils literal notranslate"><span class="pre">case.submit</span></code></p></li>
-<li><p>Following the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM naming conventions</a>, consider using <code class="docutils literal notranslate"><span class="pre">b.e21.B1850.f19_g17.midHolocene.001</span></code> as the case name</p></li>
 </ul>
 <div class="alert alert-success">   
 <details>
 <summary><font face="Times New Roman" color='blue'>Click here for the solution</font></summary><br>
 <p><strong>1. create a new case:</strong> go into scripts directory in the CESM Code and run the <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/glade/work/jiangzhu/paleocamp/cesm2.1.5/cime/scripts
-./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/cases/b.e21.B1850.f19_g17.midHolocene.001<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w">  </span>--project<span class="w"> </span>UAZN0035
+./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/b.e21.B1850.f19_g17.midHolocene.001<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w">  </span>--project<span class="w"> </span>UAZN0035
 </pre></div>
 </div>
 <br>
 <p><strong>2. case setup:</strong> go into the Case Directory and run <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/cases/b.e21.B1850.f19_g17.midHolocene.001
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/b.e21.B1850.f19_g17.midHolocene.001
 ./case.setup
 </pre></div>
 </div>
@@ -564,7 +574,7 @@ NSF National Center for Atmospheric Research</p>
 <h3><span class="section-number">2.3.1. </span>Hints:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Going through the log files (in the RUN directory, aka “Factory”) is one way to see how the model is being run.</p></li>
-<li><p>Examining <code class="docutils literal notranslate"><span class="pre">*_in</span></code> files (e.g., <code class="docutils literal notranslate"><span class="pre">drv_in</span></code> in the CasesDocs directory within the Case Directory) is another way to check the setup.</p></li>
+<li><p>Examining <code class="docutils literal notranslate"><span class="pre">*_in</span></code> files (e.g., <code class="docutils literal notranslate"><span class="pre">CasesDocs/drv_in</span></code> in the Case Directory) is another way to check the setup.</p></li>
 </ul>
 <div class="alert alert-success">   
 <details>
@@ -591,7 +601,7 @@ NSF National Center for Atmospheric Research</p>
 <ol class="arabic simple" start="2">
 <li><p>If you want to check the <code class="docutils literal notranslate"><span class="pre">drv_in</span></code> file</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/glade/u/home/jiangzhu/cases/b.e21.B1850.f19_g17.midHolocene.001/CaseDocs/drv_in
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/glade/u/home/jiangzhu/b.e21.B1850.f19_g17.midHolocene.001/CaseDocs/drv_in
 </pre></div>
 </div>
 <p>type <code class="docutils literal notranslate"><span class="pre">/orb_</span></code> to search, you should see the following</p>
@@ -601,7 +611,7 @@ NSF National Center for Atmospheric Research</p>
    <span class="n">orb_obliq</span> <span class="o">=</span> <span class="mf">24.105</span>
 </pre></div>
 </div>
-<p>Try also <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">orb_</span> <span class="pre">CaseDocs/drv_in</span></code></p>
+<p>Try also <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">orb_</span> <span class="pre">CaseDocs/drv_in</span></code> in the Case Directory</p>
 </details>
 </div></section>
 </section>
