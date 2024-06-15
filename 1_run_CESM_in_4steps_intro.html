@@ -384,7 +384,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-as-a-software">1.1. CESM as a software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">1.2. CESM Workspaces (assuming you run a company that builds new  electric cars)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-vehicles">1.2. CESM Workspaces (assuming you run a company that builds new  electric vehicles)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-preindustrial-control-simulation-in-four-steps">1.3. Run a preindustrial control simulation in four steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-create-newcase">1.3.1. Further explanations on <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-setup">1.3.2. Further explanations on <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></a></li>
@@ -432,7 +432,6 @@ NSF National Center for Atmospheric Research</p>
 <ul class="simple">
 <li><p>~5 million lines of FORTRAN* source code and scripts</p></li>
 <li><p>You need to <strong>build the source code</strong> to create and run the executable.</p></li>
-<li><p>Multiple components communicating with each other through the coupler</p></li>
 <li><p>Download the released CESM from Github*</p>
 <ul>
 <li><p>git clone -b release-cesm2.1.5 <a class="github reference external" href="https://github.com/ESCOMP/CESM.git">ESCOMP/CESM.git</a> cesm2.1.5</p></li>
@@ -445,42 +444,42 @@ NSF National Center for Atmospheric Research</p>
 <p>*NOTE: <a class="reference external" href="https://partee.io/2021/02/21/climate-model-response/">Why FORTRAN?</a><br />
 *NOTE: for this tutorial, please use the code in my workspace: <code class="docutils literal notranslate"><span class="pre">/glade/work/jiangzhu/paleocamp/cesm2.1.5</span></code></p>
 </section>
-<section id="cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">
-<h2><span class="section-number">1.2. </span>CESM Workspaces (assuming you run a company that builds new  electric cars)<a class="headerlink" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars" title="Permalink to this heading">#</a></h2>
+<section id="cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-vehicles">
+<h2><span class="section-number">1.2. </span>CESM Workspaces (assuming you run a company that builds new  electric vehicles)<a class="headerlink" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-vehicles" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>CESM Code</p></li>
+<li><p>CESM Code, “<em>Headquarter</em>”</p></li>
 </ol>
 <ul class="simple">
-<li><p>“<em>Headquarter</em>”, containing your intellectual properties, e.g., research/designing of EVs</p></li>
+<li><p>contains your intellectual properties, e.g., research/designing of EVs</p></li>
 <li><p>FORTRAN, Python, &amp; XML (Extensible Markup Language) files</p></li>
 </ul>
 <ol class="arabic simple" start="2">
-<li><p>Inputdata Directory</p></li>
+<li><p>Inputdata Directory, “<em>Supply Warehouse</em>”</p></li>
 </ol>
 <ul class="simple">
-<li><p>“<em>Supply Warehouse</em>”, where you get the raw materials, e.g., steel and batteries</p></li>
-<li><p>Netcdf data</p></li>
+<li><p>contains the raw materials, e.g., steel and batteries</p></li>
+<li><p>netcdf data</p></li>
 </ul>
 <ol class="arabic simple" start="3">
-<li><p>Case Directory</p></li>
+<li><p>Case Directory, “<em>Production Control Room</em>”</p></li>
 </ol>
 <ul class="simple">
-<li><p>“<em>Production Control Room</em>”, where you give instructions, e.g., hire 100 workers and produce 5 EVs per day</p></li>
+<li><p>where you give instructions, e.g., to hire 100 workers and produce 5 EVs per day</p></li>
 <li><p>Text, script, XML files</p></li>
 </ul>
 <ol class="arabic simple" start="4">
-<li><p>Build/Run Directory</p></li>
+<li><p>Build/Run Directory, “<em>Factory</em>”</p></li>
 </ol>
 <ul class="simple">
-<li><p>“<em>Factory</em>”, where workers assemble the EVs</p></li>
+<li><p>where workers assemble the EVs</p></li>
 <li><p>Library, executables, netcdf files, …</p></li>
 </ul>
 <ol class="arabic simple" start="5">
-<li><p>Archive Directory</p></li>
+<li><p>Archive Directory, “<em>Storage</em>”</p></li>
 </ol>
 <ul class="simple">
-<li><p>“<em>Storage</em>”, where you store the assembled EVs</p></li>
-<li><p>Netcdf files, log files in text, …</p></li>
+<li><p>where you store the assembled EVs</p></li>
+<li><p>netcdf files, log files in text, …</p></li>
 </ul>
 <p><img alt="CESM2 Workspaces" src="_images/CESM2_Workspaces_Detail.png" /></p>
 <p style="text-align: center;"> Figure: CESM2 Workspaces</p></section>
@@ -489,16 +488,16 @@ NSF National Center for Atmospheric Research</p>
 <h2><span class="section-number">1.3. </span>Run a preindustrial control simulation in four steps<a class="headerlink" href="#run-a-preindustrial-control-simulation-in-four-steps" title="Permalink to this heading">#</a></h2>
 <div class="alert alert-info">
 <ol class="arabic simple">
-<li><p>Create a new case <code class="docutils literal notranslate"><span class="pre">case01</span></code> in <code class="docutils literal notranslate"><span class="pre">~/cases</span></code> (do this in the CESM Code directory, the “<em>Headquarter</em>” and creates the “<em>Production Control Room</em>”)</p></li>
+<li><p>Create a new case <code class="docutils literal notranslate"><span class="pre">case01</span></code> in the <code class="docutils literal notranslate"><span class="pre">home</span></code> directory (do this in the CESM Code Directory, the “<em>Headquarter</em>” and creates the “<em>Production Control Room</em>”)</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/glade/work/jiangzhu/paleocamp/cesm2.1.5/cime/scripts/
-./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/cases/case01<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
+./create_newcase<span class="w"> </span>--case<span class="w"> </span>~/case01<span class="w"> </span>--compset<span class="w"> </span>B1850<span class="w"> </span>--res<span class="w"> </span>f19_g17<span class="w"> </span>--project<span class="w"> </span>UAZN0035
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Set up your case (do this in the Case directory, the “<em>Production Control Room</em>” and creates the “<em>Factory</em>”)</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~cases/case01
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/case01
 ./case.setup
 </pre></div>
 </div>
@@ -521,7 +520,7 @@ NSF National Center for Atmospheric Research</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--case</span></code>: the name and directory path of your case (<em>your Production Control Room</em>)</p></li>
 </ol>
 <ul class="simple">
-<li><p>Setting case to <code class="docutils literal notranslate"><span class="pre">~/cases/case01</span></code> will make a simulation called <code class="docutils literal notranslate"><span class="pre">case01</span></code> and it will be located in <code class="docutils literal notranslate"><span class="pre">~/cases</span></code></p></li>
+<li><p>Setting case to <code class="docutils literal notranslate"><span class="pre">~/case01</span></code> will make a simulation called <code class="docutils literal notranslate"><span class="pre">case01</span></code> and it will be located in the <code class="docutils literal notranslate"><span class="pre">home</span></code> directory</p></li>
 <li><p>We use <code class="docutils literal notranslate"><span class="pre">case01</span></code> for simplicity, but here is the <a class="reference external" href="https://www.cesm.ucar.edu/models/cesm2/naming-conventions">CESM case naming conventions</a></p></li>
 </ul>
 <ol class="arabic simple" start="2">
@@ -552,9 +551,8 @@ NSF National Center for Atmospheric Research</p>
 <h3><span class="section-number">1.3.3. </span>Further explanations on <code class="docutils literal notranslate"><span class="pre">case.build</span></code><a class="headerlink" href="#further-explanations-on-case-build" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">case.build</span></code> check and builds component model namelists and libraries, and the final executable.<br />
 <code class="docutils literal notranslate"><span class="pre">case.build</span></code> <em><em><strong>may take 10 minutes!</strong></em></em></p>
-<p>Use the following to move the building job to a computing node (not the shared login node):<br />
-<code class="docutils literal notranslate"><span class="pre">qcmd</span> <span class="pre">--</span> <span class="pre">./case.build</span></code></p>
-<p>Tips: if you first case.build fails somehow, run <code class="docutils literal notranslate"><span class="pre">./case.build</span> <span class="pre">--clean-all</span></code> first before trying to build the model again.</p>
+<p>Tips: if you first case.build fails somehow, run <code class="docutils literal notranslate"><span class="pre">./case.build</span> <span class="pre">--clean-all</span></code> before trying to build the model again.<br />
+Note: it is recommended that you avoid building CESM on a shared login node via doing <code class="docutils literal notranslate"><span class="pre">qcmd</span> <span class="pre">--</span> <span class="pre">./case.build</span></code> (skip this if you use Terminal via JupyterHub)</p>
 </section>
 <section id="further-explanations-on-case-submit">
 <h3><span class="section-number">1.3.4. </span>Further explanations on <code class="docutils literal notranslate"><span class="pre">case.submit</span></code><a class="headerlink" href="#further-explanations-on-case-submit" title="Permalink to this heading">#</a></h3>
@@ -569,7 +567,7 @@ NSF National Center for Atmospheric Research</p>
 <p><code class="docutils literal notranslate"><span class="pre">qstat</span></code> can be used in any directory on Derecho.</p>
 <div class="alert alert-info">
 <strong>Result of running qstat with an active job running: </strong><br><br>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-u<span class="w"> </span><span class="nv">$YOUR_USERNAME</span>
 </pre></div>
 </div>
 <br>
@@ -596,46 +594,55 @@ NSF National Center for Atmospheric Research</p>
 <hr class="docutils" />
 <section id="more-controls-xml-change">
 <h2><span class="section-number">1.6. </span>More controls: XML change<a class="headerlink" href="#more-controls-xml-change" title="Permalink to this heading">#</a></h2>
-<p>Much of the control of the running of your CESM simulation is done through modifying the <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> file, using the <code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> command.</p>
-<p>The <strong>step</strong> to modify the <strong>xml</strong> in <code class="docutils literal notranslate"><span class="pre">$CASEROOT</span></code> is:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">./xmlchange</span></code> command in <em><strong>the Case Directory, your <em>“Production Control Room”</em></strong></em></p></li>
+</ul>
 <div class="alert alert-info" style="text-align: left;">
 ./xmlchange VARIABLE=VALUE
 </div>
-<p>For example, the following command changes the simulation length of a single submission to 1 month (the default setting is 5 days):</p>
+<ul class="simple">
+<li><p>For example, change the simulation length of a single submission to 1 year (the default setting is 5 days):</p></li>
+</ul>
 <div class="alert alert-info" style="text-align: left;">
-./xmlchange STOP_OPTION=nmonths,STOP_N=1
+./xmlchange STOP_OPTION=nyears,STOP_N=1
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> controls the units in which you are specifying the length of the simulation</p></li>
-<li><p>and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> is the length in those units.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> is the length in those units</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xmlchange</span></code> of <code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> should be done <em><strong>beofore <code class="docutils literal notranslate"><span class="pre">./case.submit</span></code></strong></em></p></li>
+<li><p>You can check values of specific variables using:</p></li>
 </ul>
-<p>You can check values of specific variables using:</p>
 <div class="alert alert-info" style="text-align: left;">
 ./xmlquery STOP_OPTION,STOP_N
 </div>
-<p>You can find a listing of all the available XML variables along with their description in <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> by running the following commands from your case directory</p>
+<ul class="simple">
+<li><p>You can find a listing of all the available XML variables along with their description in <code class="docutils literal notranslate"><span class="pre">env_run.xml</span></code> by running the following commands from your case directory</p></li>
+</ul>
 <div class="alert alert-info" style="text-align: left;">
 ./xmlquery --listall --file env_run.xml --description
 </div>
-<p>Note: Typically, supercomputers have limits on how long you can
-run at once. For instance, some supercomputers have a wallclock
-limit of 12 hours in real time, meaning that you can only run
-continuously for 12 hours.
-In that case, you would want to set <code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> to an appropriate length that can be completed within 12 hours of real time.</p>
+<ul class="simple">
+<li><p>Note: Typically, supercomputers have a wallclock limit of 12 hours in real time, meaning that you can only run continuously for 12 hours.
+You can use <code class="docutils literal notranslate"><span class="pre">STOP_OPTION</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP_N</span></code> to an appropriate length that can be completed wallclock limit.</p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="more-controls-namelist-change">
 <h2><span class="section-number">1.7. </span>More controls: namelist change<a class="headerlink" href="#more-controls-namelist-change" title="Permalink to this heading">#</a></h2>
-<p>To control how the code is run (such as specific cloud parameters and atmospheric CO2 concentration), we modify the namelist settings.</p>
-<p>The <strong>steps</strong> to modify the <strong>namelists</strong> in the Case Directory (your <em>Production Control Room</em>) are:</p>
+<ul class="simple">
+<li><p>Typically, it is used to control specific model parameters (CO2, cloud parameters, etc.)</p></li>
+<li><p>Use text editor to edit the <code class="docutils literal notranslate"><span class="pre">user_nl_*</span></code> files in <em><strong>the Case Directory</strong></em>, your <em><strong><em>“Production Control Room”</em></strong></em></p></li>
+<li><p>For example, adding the following line into <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> will change the CO2 concentration in the atmosphere</p></li>
+</ul>
 <div class="alert alert-info">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- edit the ``user_nl_xxx`` files
-  - use your favorite text editor, such as Nano, vi, etc.
-  - if within JupyterHub, click the file from the left sidebar
-</pre></div>
+    co2vmr = 569.4e-6
 </div>
-</div>
-<p>Complete documentation about the namelist variables can be found on the <a class="reference external" href="https://www2.cesm.ucar.edu/models/cesm2/settings/current/">CESM webpage.</a></p>
+<ul class="simple">
+<li><p>Commonly used Unix text editors: <code class="docutils literal notranslate"><span class="pre">vi</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, <code class="docutils literal notranslate"><span class="pre">nano</span></code>, etc.</p></li>
+<li><p>If in JupyterHub, find the <code class="docutils literal notranslate"><span class="pre">user_nl</span></code> file on the left sidebar, click, edit, and save</p></li>
+<li><p>Namelist changes are usually done before <code class="docutils literal notranslate"><span class="pre">./case.build</span></code></p></li>
+<li><p>Complete documentation about the namelist variables can be found on the <a class="reference external" href="https://www2.cesm.ucar.edu/models/cesm2/settings/current/">CESM webpage.</a></p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="summary">
@@ -722,7 +729,7 @@ In that case, you would want to set <code class="docutils literal notranslate"><
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-as-a-software">1.1. CESM as a software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-cars">1.2. CESM Workspaces (assuming you run a company that builds new  electric cars)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cesm-workspaces-assuming-you-run-a-company-that-builds-new-electric-vehicles">1.2. CESM Workspaces (assuming you run a company that builds new  electric vehicles)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-preindustrial-control-simulation-in-four-steps">1.3. Run a preindustrial control simulation in four steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-create-newcase">1.3.1. Further explanations on <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-explanations-on-case-setup">1.3.2. Further explanations on <code class="docutils literal notranslate"><span class="pre">case.setup</span></code></a></li>

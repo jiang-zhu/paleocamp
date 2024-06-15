@@ -423,7 +423,7 @@ document.write(`
 <li><p>The NSF NCAR Computational and Information Systems Lab (CISL) provides resources for <em>high performance computing</em>, <em>data anslysis and visualization</em>, and <em>data storage and archives</em>.</p></li>
 <li><p>You need an account in order to access these resources, which you should have got by now. Let Jiang know if you don’t.</p></li>
 <li><p><em><strong>The project number for paleoCAMP is <code class="docutils literal notranslate"><span class="pre">UAZN0035</span></code></strong></em>.</p></li>
-<li><p>Duo two-factor authentication</p>
+<li><p>DUO two-factor authentication</p>
 <ul>
 <li><p>To login, please set up you CIT password and the Duo Mobile app or a landline phone.</p></li>
 <li><p>Call 303-497-2400 or email <code class="docutils literal notranslate"><span class="pre">cislhelp&#64;ucar.edu</span></code> if you don’t have a CIT password.</p></li>
@@ -439,7 +439,7 @@ document.write(`
 <p>Two ways to launch a terminal<br />
 <em><strong>1. NCAR JupyterHub (choosing <em><strong>Derecho</strong></em> when login)</strong></em><br />
 <em><strong>2. your system (Mac or PC; most commonly used)</strong></em></p>
-<p>Use method 1 if you have never used Unix (and its text editor such as vi and emacs) before.<br />
+<p>Use method 1 if you have never used Unix (incl. its text editor such as vi and emacs) before.<br />
 Use method 2 if you are comfortable with or want to learn text editing in Unix.</p>
 <section id="option-1-launch-a-terminal-from-ncar-jupyterhub">
 <h3>Option 1. Launch a terminal from NCAR JupyterHub<a class="headerlink" href="#option-1-launch-a-terminal-from-ncar-jupyterhub" title="Permalink to this heading">#</a></h3>
@@ -452,8 +452,14 @@ Use method 2 if you are comfortable with or want to learn text editing in Unix.<
 <section id="start-the-jupyterhub-with-the-derecho-node">
 <h4>Start the JupyterHub with the <em><strong>Derecho</strong></em> node<a class="headerlink" href="#start-the-jupyterhub-with-the-derecho-node" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p>Use develop queue can save resources</p></li>
-<li><p>6 hours are enough for our exercise</p></li>
+<li><p>From the dropdown menu, select</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Derecho</span></code> under Resource Selection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">develop</span></code> under Queue or Reservation (to save resources)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UAZN0035</span></code> under Project Account</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">06:00:00</span></code> under Wall Time</p></li>
+</ul>
+</li>
 </ul>
 <p><img alt="Jupyterhub Derecho" src="_images/jupyterhub_derecho_login.png" /></p>
 <p style="text-align: center;"> Figure: Jupyterhub Derecho</p>  <p>Launch a terminal within the JupyterHub</p>
