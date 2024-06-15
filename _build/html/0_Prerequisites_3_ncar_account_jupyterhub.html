@@ -383,7 +383,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-derecho-to-run-cesm-via-terminal-day-3-pm-1st-session">Use Derecho to run CESM via Terminal (Day 3 PM 1st session)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-derecho-to-run-cesm-via-terminal-day-3-afternoon-session-1">Use Derecho to run CESM via Terminal (Day 3 Afternoon Session 1)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-ncar-jupyterhub">Option 1. Launch a terminal from NCAR JupyterHub</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-in-with-your-username-and-password-and-approve-the-duo-push">Sign in with your username and password, and approve the DUO push</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">Start the JupyterHub with the <em><strong>Derecho</strong></em> node</a></li>
@@ -397,7 +397,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-into-the-hpc-at-the-nsf-ncar-using-ssh">Login into the HPC at the NSF NCAR using ssh</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-jupyterhub-for-data-anslysis-and-visualization-day-3-pm-2nd-session">User JupyterHub for data anslysis and visualization(Day 3 PM 2nd session)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-jupyterhub-for-data-anslysis-and-visualization-day-3-afternoon-session-2">Use JupyterHub for data anslysis and visualization(Day 3 Afternoon Session 2)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-jupyterhub-launch-casper-pbs-batch-server">From JupyterHub, launch <code class="docutils literal notranslate"><span class="pre">Casper</span> <span class="pre">PBS</span> <span class="pre">Batch</span></code> server</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-start-a-new-notebook">How to start a new Notebook?</a></li>
 </ul>
@@ -432,8 +432,8 @@ document.write(`
 </li>
 </ul>
 <hr class="docutils" />
-<section id="use-derecho-to-run-cesm-via-terminal-day-3-pm-1st-session">
-<h2>Use Derecho to run CESM via Terminal (Day 3 PM 1st session)<a class="headerlink" href="#use-derecho-to-run-cesm-via-terminal-day-3-pm-1st-session" title="Permalink to this heading">#</a></h2>
+<section id="use-derecho-to-run-cesm-via-terminal-day-3-afternoon-session-1">
+<h2>Use Derecho to run CESM via Terminal (Day 3 Afternoon Session 1)<a class="headerlink" href="#use-derecho-to-run-cesm-via-terminal-day-3-afternoon-session-1" title="Permalink to this heading">#</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">terminal</span></code> is a text-based interface used to control a Unix computer. It is widely considered the most efficient method to accomplish a given task or maintenance operation.</p>
 <p>Most of the users use <code class="docutils literal notranslate"><span class="pre">terminal</span></code> to remotely access the NCAR HPC and run CESM there.</p>
 <p>Two ways to launch a terminal<br />
@@ -451,7 +451,10 @@ Use method 2 if you are comfortable with or want to learn text editing in Unix.<
 <p style="text-align: center;"> Figure: JupyterHub login</p></section>
 <section id="start-the-jupyterhub-with-the-derecho-node">
 <h4>Start the JupyterHub with the <em><strong>Derecho</strong></em> node<a class="headerlink" href="#start-the-jupyterhub-with-the-derecho-node" title="Permalink to this heading">#</a></h4>
-<p>6 hours are more enough for our exercise</p>
+<ul class="simple">
+<li><p>Use develop queue can save resources</p></li>
+<li><p>6 hours are enough for our exercise</p></li>
+</ul>
 <p><img alt="Jupyterhub Derecho" src="_images/jupyterhub_derecho_login.png" /></p>
 <p style="text-align: center;"> Figure: Jupyterhub Derecho</p>  <p>Launch a terminal within the JupyterHub</p>
 <p><img alt="Terminal Derecho" src="_images/launch_a_terminal.png" /></p>
@@ -494,8 +497,8 @@ Use method 2 if you are comfortable with or want to learn text editing in Unix.<
 </section>
 </section>
 <hr class="docutils" />
-<section id="user-jupyterhub-for-data-anslysis-and-visualization-day-3-pm-2nd-session">
-<h2>User JupyterHub for data anslysis and visualization(Day 3 PM 2nd session)<a class="headerlink" href="#user-jupyterhub-for-data-anslysis-and-visualization-day-3-pm-2nd-session" title="Permalink to this heading">#</a></h2>
+<section id="use-jupyterhub-for-data-anslysis-and-visualization-day-3-afternoon-session-2">
+<h2>Use JupyterHub for data anslysis and visualization(Day 3 Afternoon Session 2)<a class="headerlink" href="#use-jupyterhub-for-data-anslysis-and-visualization-day-3-afternoon-session-2" title="Permalink to this heading">#</a></h2>
 <p>It allows for <em>multi-user</em> sessions, in a safe and secure manner.</p>
 <section id="from-jupyterhub-launch-casper-pbs-batch-server">
 <h3>From JupyterHub, launch <code class="docutils literal notranslate"><span class="pre">Casper</span> <span class="pre">PBS</span> <span class="pre">Batch</span></code> server<a class="headerlink" href="#from-jupyterhub-launch-casper-pbs-batch-server" title="Permalink to this heading">#</a></h3>
@@ -591,7 +594,7 @@ Use method 2 if you are comfortable with or want to learn text editing in Unix.<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-derecho-to-run-cesm-via-terminal-day-3-pm-1st-session">Use Derecho to run CESM via Terminal (Day 3 PM 1st session)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-derecho-to-run-cesm-via-terminal-day-3-afternoon-session-1">Use Derecho to run CESM via Terminal (Day 3 Afternoon Session 1)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-launch-a-terminal-from-ncar-jupyterhub">Option 1. Launch a terminal from NCAR JupyterHub</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-in-with-your-username-and-password-and-approve-the-duo-push">Sign in with your username and password, and approve the DUO push</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-jupyterhub-with-the-derecho-node">Start the JupyterHub with the <em><strong>Derecho</strong></em> node</a></li>
@@ -605,7 +608,7 @@ Use method 2 if you are comfortable with or want to learn text editing in Unix.<
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-into-the-hpc-at-the-nsf-ncar-using-ssh">Login into the HPC at the NSF NCAR using ssh</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-jupyterhub-for-data-anslysis-and-visualization-day-3-pm-2nd-session">User JupyterHub for data anslysis and visualization(Day 3 PM 2nd session)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-jupyterhub-for-data-anslysis-and-visualization-day-3-afternoon-session-2">Use JupyterHub for data anslysis and visualization(Day 3 Afternoon Session 2)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-jupyterhub-launch-casper-pbs-batch-server">From JupyterHub, launch <code class="docutils literal notranslate"><span class="pre">Casper</span> <span class="pre">PBS</span> <span class="pre">Batch</span></code> server</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-start-a-new-notebook">How to start a new Notebook?</a></li>
 </ul>
