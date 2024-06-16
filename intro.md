@@ -14,7 +14,7 @@ NSF National Center for Atmospheric Research
 ## Overall learning objectives
 * Know basic structure of CESM as a software
 * Learn to set up and validate simple experiments with CESM
-* Learn to use Python/Jupyter Nobebooks to analyze and visualize model output and assess model-data agreement.
+* Learn to use Python/Jupyter Nobebooks to analyze and visualize model output
 
 
 ---
@@ -25,8 +25,8 @@ NSF National Center for Atmospheric Research
 
 
 ## Optional modules
-* An example on how to set up more complicated paleoclimate simulation (CESM2-PaleoCalibr LGM)
-* Examples on how to use available simulations and reanalysis data on the NCAR machines
+* An example on how to set up more complicated paleoclimate simulation (the CESM2-PaleoCalibr LGM)
+* Examples on how to use available simulation and reanalysis data on the NCAR machines
 
 
 ---
